@@ -11,13 +11,15 @@ body{
 }
 
 #main{
-
+    flex: 1;
 }
 
 #footer{
-
+    min-height: 8vh;
+    background-color: black;
 }
 
 #header{
-    
+    min-height: 8vh;
+    background-color: blue;
 }
