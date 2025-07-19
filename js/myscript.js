@@ -1,3 +1,5 @@
+
+
 function generateGrid(gridCountX, gridCountY){
     if(gridCountX > 100 || gridCountY > 100){
         alert("Grids per side cannot exceed 100.");
