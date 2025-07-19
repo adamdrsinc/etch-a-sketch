@@ -16,7 +16,8 @@ body{
     flex-direction: column;
     max-width: 80%;
     max-height: 80%;
-    justify-content: center;
+    min-width: 80%;
+    justify-content: start;
     align-self: center;
 }
 
@@ -32,9 +33,9 @@ body{
 
 #grid{
     display: flex;
-    flex-direction: column;
     flex-wrap: wrap;
-    border: 1px solid black;
+    width: 1600px;
+    margin: 32px 0px;
 }
 
 #gridInputs{
@@ -42,6 +43,8 @@ body{
     gap: 8px;
     padding: 16px 0px;
     max-height: 64px;
+    align-self:center;
+    margin: 32px 0px;
 }
 
 .gridInput{
@@ -56,4 +59,9 @@ body{
 
 #gridInputs > button{
     padding: 8px 16px;
+}
+
+.square{
+    background-color: white;
+    border: 1px solid black;
 }

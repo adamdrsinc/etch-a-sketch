@@ -1,29 +1,32 @@
+document.querySelector('[name="submitButton"]').addEventListener('click', generateGrid);
 
+function generateGrid(){
+    const inputWidth = Number.parseInt(document.querySelector('[name="widthInput"]').value);
+    const inputHeight = Number.parseInt(document.querySelector('[name="heightInput"]').value);
 
-function generateGrid(gridCountX, gridCountY){
-    if(gridCountX > 100 || gridCountY > 100){
+    if(inputWidth > 100 || inputHeight > 100){
         alert("Grids per side cannot exceed 100.");
         return;
     }
 
-    const containerWidth = document.querySelector("#grids").style.width;
-    const gridWidth = containerWidth/gridCountX;
+    const containerWidth = document.querySelector("#grid").offsetWidth;
+    alert(containerWidth);
+    const gridHeight = containerWidth/inputWidth;
 
-    for(let i = 0; i < gridCountY; i++){
-        for(let j = 0; j < gridCountX; j++){
-            addGridSquare(gridWidth);
+    for(let i = 0; i < inputHeight; i++){
+        for(let j = 0; j < inputWidth; j++){
+            addGridSquare(gridHeight);
         }
     }
 }
 
-function addGridSquare(gridWidth){
+function addGridSquare(gridHeight){
     const newSquare = document.createElement("div");
     const grid = document.querySelector("#grid");
 
-    newSquare.style.width = gridWidth;
-    newSquare.style.height = gridWidth;
-    newSquare.style.backgroundColor = "white";
-    newSquare.style.border = "1px solid black";
+    newSquare.style.width = gridHeight + "px";
+    newSquare.style.height = gridHeight + "px";
+    newSquare.classList.add("square");
 
     grid.appendChild(newSquare);
 }
