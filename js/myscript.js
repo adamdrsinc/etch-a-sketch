@@ -30,7 +30,13 @@ function trySketch(e){
     }
 }
 
+function resetGrid(){
+    document.querySelector("#grid").innerHTML = '';
+}
+
 function generateGrid(){
+    resetGrid();
+
     const inputWidth = Number.parseInt(document.querySelector('[name="widthInput"]').value);
     const inputHeight = Number.parseInt(document.querySelector('[name="heightInput"]').value);
 
@@ -68,17 +74,3 @@ function addGridSquare(gridWidth, gridHeight){
     grid.appendChild(newSquare);
 }
 
-// function onSquareHoverEnter(e){
-//     if(!mouseDown){
-//         const hoverColor = "red";
-
-//         const target = e.target;
-//         storedBackgroundColor = target.style.backgroundColor;
-//         target.style.backgroundColor = hoverColor;
-//     }
-// }
-
-// function onSquareHoverExit(e){
-//         const target = e.target;
-//         target.style.backgroundColor = storedBackgroundColor;
-// }
