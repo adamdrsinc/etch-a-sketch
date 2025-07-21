@@ -16,17 +16,9 @@ document.querySelector('[name="submitButton"]').addEventListener('click', genera
 let storedBackgroundColor = "";
 
 function trySketch(e){
-    if(mouseDown){
-        const target = e.target;
-        let color = target.style.backgroundColor;
-        const splitColors = color.split(',');
-        let leftVal = splitColors[0];
-
-        const colorVal = Number.parseInt(leftVal.substring(4));
-        const newColorVal = colorVal - 50 >= 0 ? colorVal - 50 : 0;
-
-        let newColor = `rgb(${newColorVal}, ${newColorVal}, ${newColorVal}`;
-        target.style.backgroundColor = newColor;
+    const currentPercentage = Number.parseFloat(e.target.style.opacity);
+    if(currentPercentage < 1){
+        e.target.style.opacity = currentPercentage + 0.1;
     }
 }
 
@@ -64,12 +56,10 @@ function addGridSquare(gridWidth, gridHeight){
 
     newSquare.style.width = gridWidth + "px";
     newSquare.style.height = gridHeight + "px";
-    newSquare.style.backgroundColor = "rgb(255, 255, 255)";
+    newSquare.style.opacity = 0.1;
     newSquare.classList.add("square");
 
     newSquare.addEventListener('mouseenter', (e) => trySketch(e));
-    newSquare.addEventListener('mouseenter', (e) => onSquareHoverEnter(e));
-    newSquare.addEventListener('mouseleave', (e) => onSquareHoverExit(e));
 
     grid.appendChild(newSquare);
 }
