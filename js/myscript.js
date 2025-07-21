@@ -1,5 +1,7 @@
 document.querySelector('[name="submitButton"]').addEventListener('click', generateGrid);
 
+
+
 function generateGrid(){
     const inputWidth = Number.parseInt(document.querySelector('[name="widthInput"]').value);
     const inputHeight = Number.parseInt(document.querySelector('[name="heightInput"]').value);
@@ -9,22 +11,24 @@ function generateGrid(){
         return;
     }
 
-    const containerWidth = document.querySelector("#grid").offsetWidth;
-    alert(containerWidth);
-    const gridHeight = containerWidth/inputWidth;
+    const containerWidth = document.querySelector("#grid").getBoundingClientRect().width;
+    const gridWidth = containerWidth/inputWidth;
+
+    const containerHeight = document.querySelector("#grid").getBoundingClientRect().height;
+    const gridHeight = containerHeight/inputHeight;
 
     for(let i = 0; i < inputHeight; i++){
         for(let j = 0; j < inputWidth; j++){
-            addGridSquare(gridHeight);
+            addGridSquare(gridWidth, gridHeight);
         }
     }
 }
 
-function addGridSquare(gridHeight){
+function addGridSquare(gridWidth, gridHeight){
     const newSquare = document.createElement("div");
     const grid = document.querySelector("#grid");
 
-    newSquare.style.width = gridHeight + "px";
+    newSquare.style.width = gridWidth + "px";
     newSquare.style.height = gridHeight + "px";
     newSquare.classList.add("square");
 
